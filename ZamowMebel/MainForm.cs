@@ -15,6 +15,10 @@ namespace ZamowMebel
         protected static CDNBase.ApplicationClass Application = null;
         protected static CDNBase.ILogin Login = null;
 
+        public static String nazwaOperatora = "";
+        public static Int32 idOperatora = -1;
+        public bool czyZamknac = true;
+
         public MainForm()
         {
             InitializeComponent();
@@ -136,9 +140,9 @@ namespace ZamowMebel
 
             Faktura.MagazynZrodlowyID = 1;
 
-            int year = 2017;
-            int month = 01;
-            int day = 30;
+            int year = monthCalendar1.SelectionStart.Year;
+            int month = monthCalendar1.SelectionStart.Month;
+            int day = monthCalendar1.SelectionStart.Day;
             Faktura.DataDok = new DateTime(year, month, day);
 
             CDNBase.ICollection Pozycje = Faktura.Elementy;

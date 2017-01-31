@@ -46,53 +46,39 @@ namespace ZamowMebel.Licencje
             raportDGV.Rows.Clear();
 
             if(db.LicencjonowanieForm_LoadLicenceRaportDGV(ref tempDT, ref result))
-            {
-                /*
-                try
+            {      
+                if(tempDT.Rows.Count > 0)
                 {
-                    DataTable pomDataTable = new DataTable();
-                    String zapytanieString = "select SES_XlLogin [Login], SES_WindowsUser [User], convert(smalldatetime, SES_DataOd) [Start], datediff(s, ses_dataAkt, getdate()) [Czas przeterminowania (s)] from gal.Sesje_new where SES_DataDO is null and datediff(s, ses_dataAkt, getdate())>300";
-                    SqlDataAdapter da = polecenieBD_Galsoft(zapytanieString);
-                    da.Fill(pomDataTable);
+                    raportDGV.DataSource = tempDT;
 
-                    if(pomDataTable.Rows.Count > 0)
-                    {
-                        raportDGV.DataSource = pomDataTable;
-                        raportDGV.Columns["Login"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
-                        raportDGV.Columns["User"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
-                        raportDGV.Columns["Start"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
-                        raportDGV.Columns["Czas przeterminowania (s)"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
-                        raportDGV.CurrentCell = raportDGV.Rows[0].Cells[0];
-                    }
+                    raportDGV.Columns["Login"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
+                    raportDGV.Columns["User"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
+                    raportDGV.Columns["Start"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
+                    raportDGV.Columns["Czas przeterminowania (s)"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
+
+                    raportDGV.CurrentCell = raportDGV.Rows[0].Cells[0];
                 }
-                catch(Exception exc)
-                {
-                    MessageBox.Show("Wystąpił błąd funkcji zaladujraportDGV :" + Environment.NewLine + exc.Message);
-                    MainForm.raportBledu("LogowanieLicencjeOkno", "zaladujraportDGV() " + exc.Message);
-                }
-                */
             }
         }
 
         private void cutButton_Click(object sender, EventArgs e)
         {
-            /*
-            try
+            if(raportDGV.CurrentCell != null)
             {
-                DataTable pomDataTable = new DataTable();
-                String zapytanieString = "update gal.Sesje_new set SES_DataDO=getdate(), SES_Aktywna=3 where SES_DataDO is null and datediff(s, ses_dataAkt, getdate())>300";
-                SqlDataAdapter da = polecenieBD_Galsoft(zapytanieString);
-                da.Fill(pomDataTable);
+                DBRepository db = new DBRepository();
+                String result = "";
 
-                MessageBox.Show("Sesje nieaktywne zostały usunięte", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                if(db.LicencjonowanieForm_CutInactiveSessions(ref result))
+                {
+                    LoadLicenceRaportDGV();
+
+                    MessageBox.Show("Sesje nieaktywne zostały usunięte", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Wystąpił błąd podczas wycinania sesji nieaktywnych:\n" + result);
+                }
             }
-            catch(Exception exc)
-            {
-                MessageBox.Show("Wystąpił błąd funkcji wytnijButton_Click :" + Environment.NewLine + exc.Message);
-                glowneOkno.raportBledu("LogowanieLicencjeOkno", "wytnijButton_Click() " + exc.Message);
-            }
-            */
         }
     }
 }
