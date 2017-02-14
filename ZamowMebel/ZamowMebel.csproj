@@ -77,6 +77,10 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Windows.Forms.Ribbon35">
+      <HintPath>..\..\..\z_Biblioteki\System.Windows.Forms.Ribbon35.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -90,6 +94,48 @@
   <ItemGroup>
     <Compile Include="DataBase\DBRepository.cs" />
     <Compile Include="DataBase\Passwords.cs" />
+    <Compile Include="Konfiguracja\Ustawienia\Dzialy\DzialyChangeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Konfiguracja\Ustawienia\Dzialy\DzialyChangeForm.Designer.cs">
+      <DependentUpon>DzialyChangeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Konfiguracja\Ustawienia\Dzialy\DzialyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Konfiguracja\Ustawienia\Dzialy\DzialyForm.Designer.cs">
+      <DependentUpon>DzialyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Konfiguracja\Ustawienia\Operatorzy\OperatorzyChangeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Konfiguracja\Ustawienia\Operatorzy\OperatorzyChangeForm.Designer.cs">
+      <DependentUpon>OperatorzyChangeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Konfiguracja\Ustawienia\Operatorzy\OperatorzyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Konfiguracja\Ustawienia\Operatorzy\OperatorzyForm.Designer.cs">
+      <DependentUpon>OperatorzyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Konfiguracja\Ustawienia\Statusy\StatusyChangeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Konfiguracja\Ustawienia\Statusy\StatusyChangeForm.Designer.cs">
+      <DependentUpon>StatusyChangeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Konfiguracja\Ustawienia\Statusy\StatusyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Konfiguracja\Ustawienia\Statusy\StatusyForm.Designer.cs">
+      <DependentUpon>StatusyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Licencje\Licencjonowanie.cs" />
     <Compile Include="Licencje\LicencjonowanieForm.cs">
       <SubType>Form</SubType>
@@ -103,14 +149,32 @@
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
+    <Compile Include="OptimaApi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <Compile Include="OptimaApi.Designer.cs">
+      <DependentUpon>OptimaApi.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Konfiguracja\Ustawienia\Dzialy\DzialyChangeForm.resx">
+      <DependentUpon>DzialyChangeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Konfiguracja\Ustawienia\Dzialy\DzialyForm.resx">
+      <DependentUpon>DzialyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Konfiguracja\Ustawienia\Operatorzy\OperatorzyChangeForm.resx">
+      <DependentUpon>OperatorzyChangeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Konfiguracja\Ustawienia\Operatorzy\OperatorzyForm.resx">
+      <DependentUpon>OperatorzyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Konfiguracja\Ustawienia\Statusy\StatusyChangeForm.resx">
+      <DependentUpon>StatusyChangeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Konfiguracja\Ustawienia\Statusy\StatusyForm.resx">
+      <DependentUpon>StatusyForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Licencje\LicencjonowanieForm.resx">
       <DependentUpon>LicencjonowanieForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -119,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptimaApi.resx">
+      <DependentUpon>OptimaApi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -173,6 +240,11 @@
   <ItemGroup>
     <None Include="Resources\logout.png" />
     <None Include="Resources\login.png" />
+    <None Include="Resources\Klienci_ustawienia_32x32.png" />
+    <None Include="Resources\unlock.png" />
+    <None Include="Resources\usun.png" />
+    <None Include="Resources\zmien.png" />
+    <None Include="Resources\dodaj.png" />
     <Content Include="ZamowMebel-icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -48,6 +48,96 @@ namespace ZamowMebel
             return connectionResult;
         }
 
+        public bool DzialyForm_ZaladujDzialyDGV(ref DataTable pomDataTable, bool @checked, ref string result)
+        {
+            String zapytanie = "SELECT * FROM GAL.GAL_Dzialy";
+            if(!@checked)
+            {
+                zapytanie += " where DZI_Archiwalny <> 1";
+            }
+
+            try
+            {
+                pomDataTable = Query(zapytanie);
+                return true;
+            }
+            catch(Exception exc)
+            {
+                result = exc.Message;
+                ErrorReport("DzialyForm_ZaladujDzialyDGV()", result);
+                return false;
+            }
+        }
+
+        public bool DzialyChangeForm_AddDzial(string nazwa, string archiwalny, ref string result)
+        {
+            String zapytanieString = "INSERT INTO GAL.GAL_Dzialy VALUES ('" + nazwa + "', getdate(), " + archiwalny + ")";
+            try
+            {
+                Query(zapytanieString);
+                return true;
+            }
+            catch(Exception exc)
+            {
+                result = exc.Message;
+                ErrorReport("DzialyChangeForm_AddDzial()", exc.Message);
+                return false;
+            }
+        }
+
+        public bool StatusyForm_ZaladujStatusyDGV(ref DataTable pomDataTable, bool @checked, ref string result)
+        {
+            String zapytanie = "SELECT * FROM GAL.GAL_Statusy";
+            if(!@checked)
+            {
+                zapytanie += " where STT_Archiwalny <> 1";
+            }
+
+            try
+            {
+                pomDataTable = Query(zapytanie);
+                return true;
+            }
+            catch(Exception exc)
+            {
+                result = exc.Message;
+                ErrorReport("StatusyForm_ZaladujStatusyDGV()", result);
+                return false;
+            }
+        }
+
+        public bool StatusyForm_UsunStatus(string STT_SttId, ref string result)
+        {
+            String zapytanieString = "UPDATE GAL.GAL_Statusy SET STT_Archiwalny = 1 WHERE STT_SttId =" + STT_SttId;
+            try
+            {
+                Query(zapytanieString);
+                return true;
+            }
+            catch(Exception exc)
+            {
+                result = exc.Message;
+                ErrorReport("StatusyForm_UsunAkord()", exc.Message);
+                return false;
+            }
+        }
+
+        public bool DzialyForm_UsunDzial(string DZI_DziId, ref string result)
+        {
+            String zapytanieString = "UPDATE GAL.GAL_Dzialy SET DZI_Archiwalny = 1 WHERE DZI_DziId =" + DZI_DziId;
+            try
+            {
+                Query(zapytanieString);
+                return true;
+            }
+            catch(Exception exc)
+            {
+                result = exc.Message;
+                ErrorReport("DzialyForm_UsunDzial()", exc.Message);
+                return false;
+            }
+        }
+
         public DataTable Query(string queryString)
         {
             SqlDataAdapter da = new SqlDataAdapter();
@@ -61,6 +151,44 @@ namespace ZamowMebel
             da.Fill(tempDataTable);
 
             return tempDataTable;
+        }
+
+        public bool OperatorzyForm_ZaladujOperatorzyDGV(ref DataTable pomDataTable, bool @checked, ref string result)
+        {
+            String zapytanie = "SELECT * FROM GAL.GAL_Operatorzy where OPR_OprId <> 1";
+            if(!@checked)
+            {
+                zapytanie += " and OPR_Archiwalny <> 1";
+            }
+
+            try
+            {
+                pomDataTable = Query(zapytanie);
+                return true;
+            }
+            catch(Exception exc)
+            {
+                result = exc.Message;
+                ErrorReport("OperatorzyForm_ZaladujOperatorzyDGV()", result);
+                return false;
+            }
+        }
+
+        public bool OperatorzyChangeForm_ZaladujDzialyCB(ref DataTable dzialyDT, ref string result)
+        {
+            String zapytanie = "SELECT * FROM GAL.GAL_Dzialy where DZI_Archiwalny <> 1";
+
+            try
+            {
+                dzialyDT = Query(zapytanie);
+                return true;
+            }
+            catch(Exception exc)
+            {
+                result = exc.Message;
+                ErrorReport("OperatorzyChangeForm_ZaladujDzialyCB()", result);
+                return false;
+            }
         }
 
         public Boolean ConnectDataBaseThread()
@@ -85,6 +213,86 @@ namespace ZamowMebel
             return connectionResult;
         }
 
+        public bool OperatorzyChangeForm_AddNewOperator(string imie, string nazwisko, string dziId, int uprawnienia, string archiwalny, ref string result)
+        {
+            String zapytanieString = "INSERT INTO GAL.GAL_Operatorzy VALUES ('" + imie + "', '" + nazwisko + "', '', "+dziId+", " + uprawnienia + ", " + archiwalny + ")";
+            try
+            {
+                Query(zapytanieString);
+                return true;
+            }
+            catch(Exception exc)
+            {
+                result = exc.Message;
+                ErrorReport("OperatorzyChangeForm_AddNewOperator()", exc.Message);
+                return false;
+            }
+        }
+
+        public bool StatusyChangeForm_AddAkord(string nazwa, string archiwalny, ref string result)
+        {
+            String zapytanieString = "INSERT INTO GAL.GAL_Statusy VALUES ('" + nazwa + "', getdate(), "+archiwalny+")";
+            try
+            {
+                Query(zapytanieString);
+                return true;
+            }
+            catch(Exception exc)
+            {
+                result = exc.Message;
+                ErrorReport("StatusyChangeForm_AddAkord()", exc.Message);
+                return false;
+            }
+        }
+
+        public bool StatusyChangeForm_ChangeAkord(string sTT_SttId, string nazwa, string archiwalny, ref string result)
+        {
+            String zapytanieString = "UPDATE GAL.GAL_Statusy SET STT_Nazwa = '" + nazwa + "', STT_Archiwalny = " + archiwalny + " WHERE STT_SttId = " + sTT_SttId;
+            try
+            {
+                Query(zapytanieString);
+                return true;
+            }
+            catch(Exception exc)
+            {
+                result = exc.Message;
+                ErrorReport("StatusyChangeForm_ChangeAkord()", exc.Message);
+                return false;
+            }
+        }
+
+        public bool DzialyChangeForm_ChangeDzial(string dZI_DziId, string nazwa, string archiwalny, ref string result)
+        {
+            String zapytanieString = "UPDATE GAL.GAL_Dzialy SET DZI_Nazwa = '" + nazwa + "', DZI_Archiwalny = " + archiwalny + " WHERE DZI_DziId = " + dZI_DziId;
+            try
+            {
+                Query(zapytanieString);
+                return true;
+            }
+            catch(Exception exc)
+            {
+                result = exc.Message;
+                ErrorReport("DzialyChangeForm_ChangeDzial()", exc.Message);
+                return false;
+            }
+        }
+
+        public bool OperatorzyChangeForm_ChangeOperator(string oPR_OprId, string imie, string nazwisko, string dziId, int uprawnienia, string archiwalny, ref string result)
+        {
+            String zapytanieString = "UPDATE GAL.GAL_Operatorzy SET OPR_Imie = '" + imie + "',OPR_Nazwisko = '" + nazwisko + "', OPR_Dzial= "+dziId+ ", OPR_Uprawnienia = " + uprawnienia + " ,OPR_Archiwalny = " + archiwalny + " WHERE OPR_OprId = " + oPR_OprId;
+            try
+            {
+                Query(zapytanieString);
+                return true;
+            }
+            catch(Exception exc)
+            {
+                result = exc.Message;
+                ErrorReport("OperatorzyChangeForm_ChangeOperator()", exc.Message);
+                return false;
+            }
+        }
+
         public DataTable QueryThread(string queryString)
         {
             DBConnectionThread.Open();
@@ -103,13 +311,29 @@ namespace ZamowMebel
             return tempDataTable;
         }
 
+        public bool OperatorzyForm_UsunOperatora(string IDOperatora, ref string result)
+        {
+            String zapytanieString = "UPDATE GAL.GAL_Operatorzy SET OPR_Archiwalny = 1 WHERE OPR_OprId =" + IDOperatora;
+            try
+            {
+                Query(zapytanieString);
+                return true;
+            }
+            catch(Exception exc)
+            {
+                result = exc.Message;
+                ErrorReport("OperatorzyForm_UsunOperatora()", exc.Message);
+                return false;
+            }
+        }
+
         public void ErrorReport(string modul, string message)
         {
             try
             {
                 DateTime teraz = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
                 String nazwaKompOper = Environment.MachineName + "\\" + Environment.UserName;
-                String zapytanie = "insert into GAL.GAL_Bledy values('" + modul + " - " + message + "', " + MainForm.idOperatora + ", '" + teraz.ToString() + "')";
+                String zapytanie = "insert into GAL.GAL_Bledy values('" + modul + " - " + message + "', " + OptimaApi.idOperatora + ", '" + teraz.ToString() + "')";
 
                 Query(zapytanie);
             }
@@ -139,6 +363,22 @@ namespace ZamowMebel
             {
                 result = exc.Message;
                 ErrorReport("LicencjonowanieForm_LoadLicenceRaportDGV()", result);
+                return false;
+            }
+        }
+
+        public bool OperatorzyForm_UsunHasloOperatora(string opr_OprId, ref string result)
+        {
+            String zapytanie = "UPDATE GAL.GAL_Operatorzy SET OPR_Haslo = '' WHERE OPR_OprId = " + opr_OprId;
+            try
+            {
+                Query(zapytanie);
+                return true;
+            }
+            catch(Exception exc)
+            {
+                result = exc.Message;
+                ErrorReport("OperatorzyForm_UsunHasloOperatora()", result);
                 return false;
             }
         }

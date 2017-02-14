@@ -36,13 +36,11 @@
             this.hasloTB = new System.Windows.Forms.TextBox();
             this.logInButton = new System.Windows.Forms.Button();
             this.meblePuszPB = new System.Windows.Forms.PictureBox();
-            this.optimaPB = new System.Windows.Forms.PictureBox();
             this.galsoftPB = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.wersjaTSSL = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.meblePuszPB)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.optimaPB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.galsoftPB)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -51,7 +49,7 @@
             // 
             this.logOutButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.logOutButton.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.logOutButton.Location = new System.Drawing.Point(18, 241);
+            this.logOutButton.Location = new System.Drawing.Point(18, 178);
             this.logOutButton.Name = "logOutButton";
             this.logOutButton.Size = new System.Drawing.Size(116, 48);
             this.logOutButton.TabIndex = 4;
@@ -63,7 +61,7 @@
             // 
             this.loginLabel.AutoSize = true;
             this.loginLabel.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.loginLabel.Location = new System.Drawing.Point(12, 151);
+            this.loginLabel.Location = new System.Drawing.Point(12, 91);
             this.loginLabel.Name = "loginLabel";
             this.loginLabel.Size = new System.Drawing.Size(83, 31);
             this.loginLabel.TabIndex = 4;
@@ -73,7 +71,7 @@
             // 
             this.hasloLabel.AutoSize = true;
             this.hasloLabel.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.hasloLabel.Location = new System.Drawing.Point(12, 196);
+            this.hasloLabel.Location = new System.Drawing.Point(12, 136);
             this.hasloLabel.Name = "hasloLabel";
             this.hasloLabel.Size = new System.Drawing.Size(83, 31);
             this.hasloLabel.TabIndex = 5;
@@ -84,7 +82,7 @@
             this.operatorCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.operatorCB.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.operatorCB.FormattingEnabled = true;
-            this.operatorCB.Location = new System.Drawing.Point(101, 148);
+            this.operatorCB.Location = new System.Drawing.Point(101, 88);
             this.operatorCB.Name = "operatorCB";
             this.operatorCB.Size = new System.Drawing.Size(217, 39);
             this.operatorCB.TabIndex = 1;
@@ -93,7 +91,7 @@
             // hasloTB
             // 
             this.hasloTB.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.hasloTB.Location = new System.Drawing.Point(101, 193);
+            this.hasloTB.Location = new System.Drawing.Point(101, 133);
             this.hasloTB.Name = "hasloTB";
             this.hasloTB.PasswordChar = '*';
             this.hasloTB.Size = new System.Drawing.Size(217, 39);
@@ -106,7 +104,7 @@
             this.logInButton.BackColor = System.Drawing.Color.Lavender;
             this.logInButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.logInButton.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.logInButton.Location = new System.Drawing.Point(211, 241);
+            this.logInButton.Location = new System.Drawing.Point(211, 178);
             this.logInButton.Name = "logInButton";
             this.logInButton.Size = new System.Drawing.Size(109, 48);
             this.logInButton.TabIndex = 3;
@@ -118,28 +116,18 @@
             // 
             this.meblePuszPB.BackgroundImage = global::ZamowMebel.Properties.Resources.MeblePusz_logo_mini;
             this.meblePuszPB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.meblePuszPB.Location = new System.Drawing.Point(12, 59);
+            this.meblePuszPB.Location = new System.Drawing.Point(12, 12);
             this.meblePuszPB.Name = "meblePuszPB";
             this.meblePuszPB.Size = new System.Drawing.Size(308, 66);
             this.meblePuszPB.TabIndex = 3;
             this.meblePuszPB.TabStop = false;
-            // 
-            // optimaPB
-            // 
-            this.optimaPB.BackgroundImage = global::ZamowMebel.Properties.Resources.Comarch_ERP_Optima;
-            this.optimaPB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.optimaPB.Location = new System.Drawing.Point(12, 12);
-            this.optimaPB.Name = "optimaPB";
-            this.optimaPB.Size = new System.Drawing.Size(124, 41);
-            this.optimaPB.TabIndex = 2;
-            this.optimaPB.TabStop = false;
             // 
             // galsoftPB
             // 
             this.galsoftPB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.galsoftPB.BackgroundImage = global::ZamowMebel.Properties.Resources.Galsoft_logo;
             this.galsoftPB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.galsoftPB.Location = new System.Drawing.Point(188, 12);
+            this.galsoftPB.Location = new System.Drawing.Point(186, 248);
             this.galsoftPB.Name = "galsoftPB";
             this.galsoftPB.Size = new System.Drawing.Size(132, 41);
             this.galsoftPB.TabIndex = 1;
@@ -148,7 +136,7 @@
             // button3
             // 
             this.button3.BackgroundImage = global::ZamowMebel.Properties.Resources.login;
-            this.button3.Location = new System.Drawing.Point(135, 271);
+            this.button3.Location = new System.Drawing.Point(105, 271);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 6;
@@ -186,7 +174,6 @@
             this.Controls.Add(this.hasloLabel);
             this.Controls.Add(this.loginLabel);
             this.Controls.Add(this.meblePuszPB);
-            this.Controls.Add(this.optimaPB);
             this.Controls.Add(this.galsoftPB);
             this.Controls.Add(this.logOutButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -197,7 +184,6 @@
             this.Text = "ZamówMebel - Logowanie";
             this.Shown += new System.EventHandler(this.LoginForm_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.meblePuszPB)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.optimaPB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.galsoftPB)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
@@ -210,7 +196,6 @@
 
         private System.Windows.Forms.Button logOutButton;
         private System.Windows.Forms.PictureBox galsoftPB;
-        private System.Windows.Forms.PictureBox optimaPB;
         private System.Windows.Forms.PictureBox meblePuszPB;
         private System.Windows.Forms.Label loginLabel;
         private System.Windows.Forms.Label hasloLabel;
