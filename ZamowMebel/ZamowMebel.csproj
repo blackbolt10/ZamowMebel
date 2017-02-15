@@ -157,6 +157,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Zamowienia\ZamowieniaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Zamowienia\ZamowieniaForm.Designer.cs">
+      <DependentUpon>ZamowieniaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zamowienia\ZamowieniaSzczegolyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Zamowienia\ZamowieniaSzczegolyForm.Designer.cs">
+      <DependentUpon>ZamowieniaSzczegolyForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Konfiguracja\Ustawienia\Dzialy\DzialyChangeForm.resx">
       <DependentUpon>DzialyChangeForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -197,6 +209,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Zamowienia\ZamowieniaForm.resx">
+      <DependentUpon>ZamowieniaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zamowienia\ZamowieniaSzczegolyForm.resx">
+      <DependentUpon>ZamowieniaSzczegolyForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -245,6 +263,7 @@
     <None Include="Resources\usun.png" />
     <None Include="Resources\zmien.png" />
     <None Include="Resources\dodaj.png" />
+    <None Include="Resources\odswiez_32x32.png" />
     <Content Include="ZamowMebel-icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

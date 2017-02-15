@@ -32,14 +32,16 @@
             this.ribbon1 = new System.Windows.Forms.Ribbon();
             this.ribbonTab1 = new System.Windows.Forms.RibbonTab();
             this.ribbonPanel1 = new System.Windows.Forms.RibbonPanel();
+            this.logowanieRibbonButton = new System.Windows.Forms.RibbonButton();
+            this.ribbonPanel3 = new System.Windows.Forms.RibbonPanel();
+            this.zamowieniaRibbonButton = new System.Windows.Forms.RibbonButton();
             this.konfiguracjaTab = new System.Windows.Forms.RibbonTab();
             this.ribbonPanel2 = new System.Windows.Forms.RibbonPanel();
             this.operatorzyRibbonButton = new System.Windows.Forms.RibbonButton();
             this.statusyRibbonButton = new System.Windows.Forms.RibbonButton();
             this.dzialyRibbonButton = new System.Windows.Forms.RibbonButton();
-            this.zmienOknoLabel = new System.Windows.Forms.Label();
-            this.oknaCB = new System.Windows.Forms.ComboBox();
-            this.logowanieRibbonButton = new System.Windows.Forms.RibbonButton();
+            zmienOknoLabel = new System.Windows.Forms.Label();
+            oknaCB = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // ribbon1
@@ -74,12 +76,32 @@
             // ribbonTab1
             // 
             this.ribbonTab1.Panels.Add(this.ribbonPanel1);
-            this.ribbonTab1.Text = "ribbonTab1";
+            this.ribbonTab1.Panels.Add(this.ribbonPanel3);
+            this.ribbonTab1.Text = "Ogólne";
             // 
             // ribbonPanel1
             // 
             this.ribbonPanel1.Items.Add(this.logowanieRibbonButton);
             this.ribbonPanel1.Text = "System";
+            // 
+            // logowanieRibbonButton
+            // 
+            this.logowanieRibbonButton.Image = global::ZamowMebel.Properties.Resources.koniec_32x32;
+            this.logowanieRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("logowanieRibbonButton.SmallImage")));
+            this.logowanieRibbonButton.Text = "Logowanie";
+            this.logowanieRibbonButton.Click += new System.EventHandler(this.logowanieRibbonButton_Click);
+            // 
+            // ribbonPanel3
+            // 
+            this.ribbonPanel3.Items.Add(this.zamowieniaRibbonButton);
+            this.ribbonPanel3.Text = "Zamówienia";
+            // 
+            // zamowieniaRibbonButton
+            // 
+            this.zamowieniaRibbonButton.Image = global::ZamowMebel.Properties.Resources.koniec_32x32;
+            this.zamowieniaRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("zamowieniaRibbonButton.SmallImage")));
+            this.zamowieniaRibbonButton.Text = "Zamówienia";
+            this.zamowieniaRibbonButton.Click += new System.EventHandler(this.zamowieniaRibbonButton_Click);
             // 
             // konfiguracjaTab
             // 
@@ -116,46 +138,41 @@
             // 
             // zmienOknoLabel
             // 
-            this.zmienOknoLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.zmienOknoLabel.AutoSize = true;
-            this.zmienOknoLabel.Location = new System.Drawing.Point(335, 15);
-            this.zmienOknoLabel.Name = "zmienOknoLabel";
-            this.zmienOknoLabel.Size = new System.Drawing.Size(63, 13);
-            this.zmienOknoLabel.TabIndex = 7;
-            this.zmienOknoLabel.Text = "Zmień okno";
-            this.zmienOknoLabel.Visible = false;
+            zmienOknoLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            zmienOknoLabel.AutoSize = true;
+            zmienOknoLabel.Location = new System.Drawing.Point(335, 15);
+            zmienOknoLabel.Name = "zmienOknoLabel";
+            zmienOknoLabel.Size = new System.Drawing.Size(63, 13);
+            zmienOknoLabel.TabIndex = 7;
+            zmienOknoLabel.Text = "Zmień okno";
+            zmienOknoLabel.Visible = false;
             // 
             // oknaCB
             // 
-            this.oknaCB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.oknaCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.oknaCB.FormattingEnabled = true;
-            this.oknaCB.Location = new System.Drawing.Point(404, 12);
-            this.oknaCB.Name = "oknaCB";
-            this.oknaCB.Size = new System.Drawing.Size(180, 21);
-            this.oknaCB.TabIndex = 6;
-            this.oknaCB.Visible = false;
-            this.oknaCB.SelectedIndexChanged += new System.EventHandler(this.oknaCB_SelectedIndexChanged);
-            // 
-            // logowanieRibbonButton
-            // 
-            this.logowanieRibbonButton.Image = global::ZamowMebel.Properties.Resources.koniec_32x32;
-            this.logowanieRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("logowanieRibbonButton.SmallImage")));
-            this.logowanieRibbonButton.Text = "Logowanie";
-            this.logowanieRibbonButton.Click += new System.EventHandler(this.logowanieRibbonButton_Click);
+            oknaCB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            oknaCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            oknaCB.FormattingEnabled = true;
+            oknaCB.Location = new System.Drawing.Point(404, 12);
+            oknaCB.Name = "oknaCB";
+            oknaCB.Size = new System.Drawing.Size(180, 21);
+            oknaCB.TabIndex = 6;
+            oknaCB.Visible = false;
+            oknaCB.SelectedIndexChanged += new System.EventHandler(oknaCB_SelectedIndexChanged);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 361);
-            this.Controls.Add(this.zmienOknoLabel);
-            this.Controls.Add(this.oknaCB);
+            this.Controls.Add(zmienOknoLabel);
+            this.Controls.Add(oknaCB);
             this.Controls.Add(this.ribbon1);
             this.IsMdiContainer = true;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Zamów mebel";
+            this.Deactivate += new System.EventHandler(this.MainForm_Deactivate);
+            this.Shown += new System.EventHandler(this.MainForm_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -170,9 +187,11 @@
         private System.Windows.Forms.RibbonPanel ribbonPanel2;
         private System.Windows.Forms.RibbonButton operatorzyRibbonButton;
         private System.Windows.Forms.RibbonButton statusyRibbonButton;
-        private System.Windows.Forms.Label zmienOknoLabel;
-        private System.Windows.Forms.ComboBox oknaCB;
         private System.Windows.Forms.RibbonButton dzialyRibbonButton;
         private System.Windows.Forms.RibbonButton logowanieRibbonButton;
+        private System.Windows.Forms.RibbonPanel ribbonPanel3;
+        private System.Windows.Forms.RibbonButton zamowieniaRibbonButton;
+        private static System.Windows.Forms.Label zmienOknoLabel;
+        private static System.Windows.Forms.ComboBox oknaCB;
     }
 }

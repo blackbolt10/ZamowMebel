@@ -121,6 +121,9 @@
   <data name="Galsoft-logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\Galsoft-logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="dodaj" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dodaj.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Comarch_ERP-Optima" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\Comarch_ERP-Optima.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -151,7 +154,7 @@
   <data name="MeblePusz-logo_mini" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\MeblePusz-logo_mini.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="dodaj" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dodaj.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="odswiez_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\odswiez_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

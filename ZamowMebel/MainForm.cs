@@ -12,16 +12,16 @@ namespace ZamowMebel
 {
     public partial class MainForm : Form
     {
-        private List<Form> listaMdiChildForm = new List<Form>();
+        private static List<Form> listaMdiChildForm = new List<Form>();
 
         private Konfiguracja.Ustawienia.Operatorzy.OperatorzyForm operatorzyForm;
         private Konfiguracja.Ustawienia.Statusy.StatusyForm statusyForm;
         private Konfiguracja.Ustawienia.Dzialy.DzialyForm dzialyForm;
+        private Zamowienia.ZamowieniaForm zamowieniaForm;
 
 
 
-
-
+        private String sciezkaRejestru = "Software\\Galsoft\\ZamowMebel\\MainForm";
         public bool czyZamknac = true;
 
         public MainForm()
@@ -29,7 +29,36 @@ namespace ZamowMebel
             InitializeComponent();
         }
 
-        private void mdiChild_Activate(object sender, EventArgs e)
+        private void MainForm_Shown(object sender, EventArgs e)
+        {
+            Microsoft.Win32.RegistryKey key;
+            key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(sciezkaRejestru);
+
+            SetDesktopLocation(Convert.ToInt16(key.GetValue("Location.X", Location.X.ToString())), Convert.ToInt16(key.GetValue("Location.Y", Location.Y.ToString())));
+
+            Size = new Size(Convert.ToInt16(key.GetValue("Size.Width", Size.Width.ToString())), Convert.ToInt16(key.GetValue("Size.Height", Size.Height.ToString())));
+
+            key.Close();
+        }
+
+        private void MainForm_Deactivate(object sender, EventArgs e)
+        {
+            Microsoft.Win32.RegistryKey key;
+            key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(sciezkaRejestru);
+
+            if(WindowState != FormWindowState.Minimized)
+            {
+                key.SetValue("Location.X", Location.X.ToString());
+                key.SetValue("Location.Y", Location.Y.ToString());
+
+                // this.Size.Height .Width
+                key.SetValue("Size.Width", Size.Width.ToString());
+                key.SetValue("Size.Height", Size.Height.ToString());
+            }
+            key.Close();
+        }
+
+        public static void mdiChild_Activate(object sender, EventArgs e)
         {
             Form form = (Form)sender;
 
@@ -43,7 +72,7 @@ namespace ZamowMebel
             aktualizujListeMdiChild();
         }
 
-        private void aktualizujListeMdiChild()
+        private static void aktualizujListeMdiChild()
         {
             oknaCB.Items.Clear();
 
@@ -74,9 +103,10 @@ namespace ZamowMebel
             {
                 listaMdiChildForm[oknaCB.SelectedIndex].Focus();
             }
+
         }
 
-        private void mdiChild_FormClosing(object sender, FormClosingEventArgs e)
+        public static void mdiChild_FormClosing(object sender, FormClosingEventArgs e)
         {
             Form form = (Form)sender;
 
@@ -147,6 +177,23 @@ namespace ZamowMebel
             else
             {
                 dzialyForm.Activate();
+            }
+        }
+
+        private void zamowieniaRibbonButton_Click(object sender, EventArgs e)
+        {
+            if(zamowieniaForm == null || zamowieniaForm.IsDisposed)
+            {
+                zamowieniaForm = new Zamowienia.ZamowieniaForm();
+                zamowieniaForm.FormClosing += new System.Windows.Forms.FormClosingEventHandler(mdiChild_FormClosing);
+                zamowieniaForm.Shown += new System.EventHandler(mdiChild_Activate);
+                zamowieniaForm.MdiParent = this;
+                zamowieniaForm.Dock = DockStyle.Fill;
+                zamowieniaForm.Show();
+            }
+            else
+            {
+                zamowieniaForm.Activate();
             }
         }
     }
