@@ -1,6 +1,6 @@
-﻿namespace ZamowMebel.Zamowienia
+﻿namespace ZamowMebel.Zamowienia.Reklamacje
 {
-    partial class ZamowieniaForm
+    partial class ReklamacjeForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.zamowieniaDGV = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.dataDoDTP = new System.Windows.Forms.DateTimePicker();
@@ -38,36 +37,14 @@
             this.dataOdDTP = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.kontrahenciCB = new System.Windows.Forms.ComboBox();
+            this.reklamacjeDGV = new System.Windows.Forms.DataGridView();
+            this.addButton = new System.Windows.Forms.Button();
             this.reloadButton = new System.Windows.Forms.Button();
             this.changeButton = new System.Windows.Forms.Button();
             this.zamknijButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.zamowieniaDGV)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.reklamacjeDGV)).BeginInit();
             this.SuspendLayout();
-            // 
-            // zamowieniaDGV
-            // 
-            this.zamowieniaDGV.AllowUserToAddRows = false;
-            this.zamowieniaDGV.AllowUserToDeleteRows = false;
-            this.zamowieniaDGV.AllowUserToResizeRows = false;
-            this.zamowieniaDGV.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.zamowieniaDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.zamowieniaDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.zamowieniaDGV.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.zamowieniaDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.zamowieniaDGV.Location = new System.Drawing.Point(12, 12);
-            this.zamowieniaDGV.MultiSelect = false;
-            this.zamowieniaDGV.Name = "zamowieniaDGV";
-            this.zamowieniaDGV.ReadOnly = true;
-            this.zamowieniaDGV.RowHeadersVisible = false;
-            this.zamowieniaDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.zamowieniaDGV.Size = new System.Drawing.Size(576, 292);
-            this.zamowieniaDGV.TabIndex = 109;
-            this.zamowieniaDGV.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.zamowieniaDGV_CellFormatting);
-            this.zamowieniaDGV.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.zamowieniaDGV_CellPainting);
             // 
             // groupBox1
             // 
@@ -80,10 +57,11 @@
             this.groupBox1.Controls.Add(this.dataOdDTP);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.kontrahenciCB);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 310);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(462, 78);
-            this.groupBox1.TabIndex = 110;
+            this.groupBox1.TabIndex = 114;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Parametry";
             // 
@@ -155,6 +133,39 @@
             this.kontrahenciCB.Size = new System.Drawing.Size(169, 21);
             this.kontrahenciCB.TabIndex = 0;
             // 
+            // reklamacjeDGV
+            // 
+            this.reklamacjeDGV.AllowUserToAddRows = false;
+            this.reklamacjeDGV.AllowUserToDeleteRows = false;
+            this.reklamacjeDGV.AllowUserToResizeRows = false;
+            this.reklamacjeDGV.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.reklamacjeDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.reklamacjeDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.reklamacjeDGV.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.reklamacjeDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.reklamacjeDGV.Location = new System.Drawing.Point(12, 12);
+            this.reklamacjeDGV.MultiSelect = false;
+            this.reklamacjeDGV.Name = "reklamacjeDGV";
+            this.reklamacjeDGV.ReadOnly = true;
+            this.reklamacjeDGV.RowHeadersVisible = false;
+            this.reklamacjeDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.reklamacjeDGV.Size = new System.Drawing.Size(626, 292);
+            this.reklamacjeDGV.TabIndex = 118;
+            // 
+            // addButton
+            // 
+            this.addButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.addButton.BackgroundImage = global::ZamowMebel.Properties.Resources.dodaj;
+            this.addButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.addButton.Location = new System.Drawing.Point(530, 359);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(32, 32);
+            this.addButton.TabIndex = 119;
+            this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            // 
             // reloadButton
             // 
             this.reloadButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -163,7 +174,7 @@
             this.reloadButton.Location = new System.Drawing.Point(480, 359);
             this.reloadButton.Name = "reloadButton";
             this.reloadButton.Size = new System.Drawing.Size(32, 32);
-            this.reloadButton.TabIndex = 113;
+            this.reloadButton.TabIndex = 117;
             this.reloadButton.UseVisualStyleBackColor = true;
             this.reloadButton.Click += new System.EventHandler(this.reloadButton_Click);
             // 
@@ -173,10 +184,10 @@
             this.changeButton.BackgroundImage = global::ZamowMebel.Properties.Resources.zmien;
             this.changeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.changeButton.Enabled = false;
-            this.changeButton.Location = new System.Drawing.Point(518, 359);
+            this.changeButton.Location = new System.Drawing.Point(568, 359);
             this.changeButton.Name = "changeButton";
             this.changeButton.Size = new System.Drawing.Size(32, 32);
-            this.changeButton.TabIndex = 111;
+            this.changeButton.TabIndex = 115;
             this.changeButton.UseVisualStyleBackColor = true;
             this.changeButton.Click += new System.EventHandler(this.changeButton_Click);
             // 
@@ -185,49 +196,39 @@
             this.zamknijButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.zamknijButton.BackgroundImage = global::ZamowMebel.Properties.Resources.koniec_32x32;
             this.zamknijButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.zamknijButton.Location = new System.Drawing.Point(556, 359);
+            this.zamknijButton.Location = new System.Drawing.Point(606, 359);
             this.zamknijButton.Name = "zamknijButton";
             this.zamknijButton.Size = new System.Drawing.Size(32, 32);
-            this.zamknijButton.TabIndex = 112;
+            this.zamknijButton.TabIndex = 116;
             this.zamknijButton.UseVisualStyleBackColor = true;
             this.zamknijButton.Click += new System.EventHandler(this.zamknijButton_Click);
             // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackgroundImage = global::ZamowMebel.Properties.Resources.odswiez_32x32;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Location = new System.Drawing.Point(252, 141);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(32, 32);
-            this.button1.TabIndex = 114;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // ZamowieniaForm
+            // ReklamacjeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 400);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(650, 400);
+            this.Controls.Add(this.addButton);
+            this.Controls.Add(this.reklamacjeDGV);
             this.Controls.Add(this.reloadButton);
             this.Controls.Add(this.changeButton);
             this.Controls.Add(this.zamknijButton);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.zamowieniaDGV);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "ZamowieniaForm";
-            this.Text = "ZamowieniaForm";
-            ((System.ComponentModel.ISupportInitialize)(this.zamowieniaDGV)).EndInit();
+            this.Name = "ReklamacjeForm";
+            this.Text = "ReklamacjeForm";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.reklamacjeDGV)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView zamowieniaDGV;
+        private System.Windows.Forms.Button reloadButton;
+        private System.Windows.Forms.Button changeButton;
+        private System.Windows.Forms.Button zamknijButton;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dataDoDTP;
@@ -237,9 +238,7 @@
         private System.Windows.Forms.DateTimePicker dataOdDTP;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox kontrahenciCB;
-        private System.Windows.Forms.Button changeButton;
-        private System.Windows.Forms.Button zamknijButton;
-        private System.Windows.Forms.Button reloadButton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView reklamacjeDGV;
+        private System.Windows.Forms.Button addButton;
     }
 }

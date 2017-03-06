@@ -50,6 +50,12 @@
     <ApplicationIcon>ZamowMebel-icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BarcodeLib">
+      <HintPath>..\..\..\z_Biblioteki\BarcodeLib.dll</HintPath>
+    </Reference>
+    <Reference Include="BusinessRefinery.Barcode.Web">
+      <HintPath>..\..\..\z_Biblioteki\BusinessRefinery.Barcode.Web.dll</HintPath>
+    </Reference>
     <Reference Include="ICDNBase, Version=2017.0.1.545, Culture=neutral, PublicKeyToken=5179454a0b814fab, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>False</EmbedInteropTypes>
@@ -75,6 +81,9 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>..\..\..\z_Biblioteki\IOP_KASBOLib.dll</HintPath>
     </Reference>
+    <Reference Include="Spire.Barcode">
+      <HintPath>C:\Program Files (x86)\e-iceblue\Spire.Barcode\Bin\NET4.0\Spire.Barcode.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
@@ -94,6 +103,7 @@
   <ItemGroup>
     <Compile Include="DataBase\DBRepository.cs" />
     <Compile Include="DataBase\Passwords.cs" />
+    <Compile Include="Dodatki\DataGridViewProgressColumn.cs" />
     <Compile Include="Konfiguracja\Ustawienia\Dzialy\DzialyChangeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +167,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Zamowienia\Ean13GeneratorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Zamowienia\Ean13GeneratorForm.Designer.cs">
+      <DependentUpon>Ean13GeneratorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zamowienia\Reklamacje\ReklamacjeChangeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Zamowienia\Reklamacje\ReklamacjeChangeForm.Designer.cs">
+      <DependentUpon>ReklamacjeChangeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zamowienia\Reklamacje\ReklamacjeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Zamowienia\Reklamacje\ReklamacjeForm.Designer.cs">
+      <DependentUpon>ReklamacjeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Zamowienia\ZamowieniaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -209,12 +237,23 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Zamowienia\Ean13GeneratorForm.resx">
+      <DependentUpon>Ean13GeneratorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zamowienia\Reklamacje\ReklamacjeChangeForm.resx">
+      <DependentUpon>ReklamacjeChangeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zamowienia\Reklamacje\ReklamacjeForm.resx">
+      <DependentUpon>ReklamacjeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Zamowienia\ZamowieniaForm.resx">
       <DependentUpon>ZamowieniaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Zamowienia\ZamowieniaSzczegolyForm.resx">
       <DependentUpon>ZamowieniaSzczegolyForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Dodatki\Code39AzaleaNarrow1.ttf" />
+    <None Include="Dodatki\EAN-13.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -264,6 +303,7 @@
     <None Include="Resources\zmien.png" />
     <None Include="Resources\dodaj.png" />
     <None Include="Resources\odswiez_32x32.png" />
+    <None Include="Resources\Grey_gradient.png" />
     <Content Include="ZamowMebel-icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

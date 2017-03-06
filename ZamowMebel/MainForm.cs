@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -18,8 +19,11 @@ namespace ZamowMebel
         private Konfiguracja.Ustawienia.Statusy.StatusyForm statusyForm;
         private Konfiguracja.Ustawienia.Dzialy.DzialyForm dzialyForm;
         private Zamowienia.ZamowieniaForm zamowieniaForm;
+        private Zamowienia.Reklamacje.ReklamacjeForm reklamacjeForm;
 
-
+        private System.Threading.Timer timer;
+        private Int32 czasPonowieniaTimer = 10 * 1000;
+        private Thread thread;
 
         private String sciezkaRejestru = "Software\\Galsoft\\ZamowMebel\\MainForm";
         public bool czyZamknac = true;
@@ -27,6 +31,26 @@ namespace ZamowMebel
         public MainForm()
         {
             InitializeComponent();
+
+            StartThread();
+        }
+
+        private void StartThread()
+        {
+            thread = new Thread(new ThreadStart(Aktualizuj));
+            thread.Start();
+        }
+
+        private void Aktualizuj()
+        {
+            timer = new System.Threading.Timer(Timer_Tick, null, 0, 1000 * 60);
+        }
+
+        private void Timer_Tick(object state)
+        {
+            DBRepository db = new DBRepository(1);
+
+            db.AktualizujZamowieniaOptima_PobierzNoweZamowienia();
         }
 
         private void MainForm_Shown(object sender, EventArgs e)
@@ -194,6 +218,23 @@ namespace ZamowMebel
             else
             {
                 zamowieniaForm.Activate();
+            }
+        }
+
+        private void reklamacjeRibbonButton_Click(object sender, EventArgs e)
+        {
+            if(reklamacjeForm == null || reklamacjeForm.IsDisposed)
+            {
+                reklamacjeForm = new Zamowienia.Reklamacje.ReklamacjeForm();
+                reklamacjeForm.FormClosing += new System.Windows.Forms.FormClosingEventHandler(mdiChild_FormClosing);
+                reklamacjeForm.Shown += new System.EventHandler(mdiChild_Activate);
+                reklamacjeForm.MdiParent = this;
+                reklamacjeForm.Dock = DockStyle.Fill;
+                reklamacjeForm.Show();
+            }
+            else
+            {
+                reklamacjeForm.Activate();
             }
         }
     }

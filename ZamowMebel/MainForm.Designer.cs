@@ -32,16 +32,18 @@
             this.ribbon1 = new System.Windows.Forms.Ribbon();
             this.ribbonTab1 = new System.Windows.Forms.RibbonTab();
             this.ribbonPanel1 = new System.Windows.Forms.RibbonPanel();
-            this.logowanieRibbonButton = new System.Windows.Forms.RibbonButton();
             this.ribbonPanel3 = new System.Windows.Forms.RibbonPanel();
-            this.zamowieniaRibbonButton = new System.Windows.Forms.RibbonButton();
             this.konfiguracjaTab = new System.Windows.Forms.RibbonTab();
             this.ribbonPanel2 = new System.Windows.Forms.RibbonPanel();
+            zmienOknoLabel = new System.Windows.Forms.Label();
+            oknaCB = new System.Windows.Forms.ComboBox();
+            this.logowanieRibbonButton = new System.Windows.Forms.RibbonButton();
+            this.zamknijRibbonButton = new System.Windows.Forms.RibbonButton();
+            this.zamowieniaRibbonButton = new System.Windows.Forms.RibbonButton();
+            this.reklamacjeRibbonButton = new System.Windows.Forms.RibbonButton();
             this.operatorzyRibbonButton = new System.Windows.Forms.RibbonButton();
             this.statusyRibbonButton = new System.Windows.Forms.RibbonButton();
             this.dzialyRibbonButton = new System.Windows.Forms.RibbonButton();
-            zmienOknoLabel = new System.Windows.Forms.Label();
-            oknaCB = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // ribbon1
@@ -82,26 +84,14 @@
             // ribbonPanel1
             // 
             this.ribbonPanel1.Items.Add(this.logowanieRibbonButton);
+            this.ribbonPanel1.Items.Add(this.zamknijRibbonButton);
             this.ribbonPanel1.Text = "System";
-            // 
-            // logowanieRibbonButton
-            // 
-            this.logowanieRibbonButton.Image = global::ZamowMebel.Properties.Resources.koniec_32x32;
-            this.logowanieRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("logowanieRibbonButton.SmallImage")));
-            this.logowanieRibbonButton.Text = "Logowanie";
-            this.logowanieRibbonButton.Click += new System.EventHandler(this.logowanieRibbonButton_Click);
             // 
             // ribbonPanel3
             // 
             this.ribbonPanel3.Items.Add(this.zamowieniaRibbonButton);
+            this.ribbonPanel3.Items.Add(this.reklamacjeRibbonButton);
             this.ribbonPanel3.Text = "Zamówienia";
-            // 
-            // zamowieniaRibbonButton
-            // 
-            this.zamowieniaRibbonButton.Image = global::ZamowMebel.Properties.Resources.koniec_32x32;
-            this.zamowieniaRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("zamowieniaRibbonButton.SmallImage")));
-            this.zamowieniaRibbonButton.Text = "Zamówienia";
-            this.zamowieniaRibbonButton.Click += new System.EventHandler(this.zamowieniaRibbonButton_Click);
             // 
             // konfiguracjaTab
             // 
@@ -114,27 +104,6 @@
             this.ribbonPanel2.Items.Add(this.statusyRibbonButton);
             this.ribbonPanel2.Items.Add(this.dzialyRibbonButton);
             this.ribbonPanel2.Text = "Ustawienia";
-            // 
-            // operatorzyRibbonButton
-            // 
-            this.operatorzyRibbonButton.Image = global::ZamowMebel.Properties.Resources.Klienci_ustawienia_32x32;
-            this.operatorzyRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("operatorzyRibbonButton.SmallImage")));
-            this.operatorzyRibbonButton.Text = "Operatorzy";
-            this.operatorzyRibbonButton.Click += new System.EventHandler(this.operatorzyRibbonButton_Click);
-            // 
-            // statusyRibbonButton
-            // 
-            this.statusyRibbonButton.Image = global::ZamowMebel.Properties.Resources.koniec_32x32;
-            this.statusyRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("statusyRibbonButton.SmallImage")));
-            this.statusyRibbonButton.Text = "Statusy";
-            this.statusyRibbonButton.Click += new System.EventHandler(this.statusyRibbonButton_Click);
-            // 
-            // dzialyRibbonButton
-            // 
-            this.dzialyRibbonButton.Image = global::ZamowMebel.Properties.Resources.koniec_32x32;
-            this.dzialyRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("dzialyRibbonButton.SmallImage")));
-            this.dzialyRibbonButton.Text = "Działy";
-            this.dzialyRibbonButton.Click += new System.EventHandler(this.dzialyRibbonButton_Click);
             // 
             // zmienOknoLabel
             // 
@@ -158,6 +127,54 @@
             oknaCB.TabIndex = 6;
             oknaCB.Visible = false;
             oknaCB.SelectedIndexChanged += new System.EventHandler(oknaCB_SelectedIndexChanged);
+            // 
+            // logowanieRibbonButton
+            // 
+            this.logowanieRibbonButton.Image = global::ZamowMebel.Properties.Resources.Grey_gradient;
+            this.logowanieRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("logowanieRibbonButton.SmallImage")));
+            this.logowanieRibbonButton.Text = "Logowanie";
+            this.logowanieRibbonButton.Click += new System.EventHandler(this.logowanieRibbonButton_Click);
+            // 
+            // zamknijRibbonButton
+            // 
+            this.zamknijRibbonButton.Image = global::ZamowMebel.Properties.Resources.koniec_32x32;
+            this.zamknijRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("zamknijRibbonButton.SmallImage")));
+            this.zamknijRibbonButton.Text = "Zamknij";
+            // 
+            // zamowieniaRibbonButton
+            // 
+            this.zamowieniaRibbonButton.Image = global::ZamowMebel.Properties.Resources.Grey_gradient;
+            this.zamowieniaRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("zamowieniaRibbonButton.SmallImage")));
+            this.zamowieniaRibbonButton.Text = "Zamówienia";
+            this.zamowieniaRibbonButton.Click += new System.EventHandler(this.zamowieniaRibbonButton_Click);
+            // 
+            // reklamacjeRibbonButton
+            // 
+            this.reklamacjeRibbonButton.Image = global::ZamowMebel.Properties.Resources.Grey_gradient;
+            this.reklamacjeRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("reklamacjeRibbonButton.SmallImage")));
+            this.reklamacjeRibbonButton.Text = "Reklamacje";
+            this.reklamacjeRibbonButton.Click += new System.EventHandler(this.reklamacjeRibbonButton_Click);
+            // 
+            // operatorzyRibbonButton
+            // 
+            this.operatorzyRibbonButton.Image = global::ZamowMebel.Properties.Resources.Klienci_ustawienia_32x32;
+            this.operatorzyRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("operatorzyRibbonButton.SmallImage")));
+            this.operatorzyRibbonButton.Text = "Operatorzy";
+            this.operatorzyRibbonButton.Click += new System.EventHandler(this.operatorzyRibbonButton_Click);
+            // 
+            // statusyRibbonButton
+            // 
+            this.statusyRibbonButton.Image = global::ZamowMebel.Properties.Resources.koniec_32x32;
+            this.statusyRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("statusyRibbonButton.SmallImage")));
+            this.statusyRibbonButton.Text = "Statusy";
+            this.statusyRibbonButton.Click += new System.EventHandler(this.statusyRibbonButton_Click);
+            // 
+            // dzialyRibbonButton
+            // 
+            this.dzialyRibbonButton.Image = global::ZamowMebel.Properties.Resources.koniec_32x32;
+            this.dzialyRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("dzialyRibbonButton.SmallImage")));
+            this.dzialyRibbonButton.Text = "Działy";
+            this.dzialyRibbonButton.Click += new System.EventHandler(this.dzialyRibbonButton_Click);
             // 
             // MainForm
             // 
@@ -191,6 +208,8 @@
         private System.Windows.Forms.RibbonButton logowanieRibbonButton;
         private System.Windows.Forms.RibbonPanel ribbonPanel3;
         private System.Windows.Forms.RibbonButton zamowieniaRibbonButton;
+        private System.Windows.Forms.RibbonButton zamknijRibbonButton;
+        private System.Windows.Forms.RibbonButton reklamacjeRibbonButton;
         private static System.Windows.Forms.Label zmienOknoLabel;
         private static System.Windows.Forms.ComboBox oknaCB;
     }

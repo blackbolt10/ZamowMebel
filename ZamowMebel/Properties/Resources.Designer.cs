@@ -93,6 +93,16 @@ namespace ZamowMebel.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Grey_gradient {
+            get {
+                object obj = ResourceManager.GetObject("Grey_gradient", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Klienci_ustawienia_32x32 {
             get {
                 object obj = ResourceManager.GetObject("Klienci_ustawienia_32x32", resourceCulture);

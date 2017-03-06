@@ -48,6 +48,34 @@ namespace ZamowMebel
             return connectionResult;
         }
 
+        public void AktualizujZamowieniaOptima_PobierzNoweZamowienia()
+        {
+            String zapytanie = "exec gal.zamowieniaupdate";
+
+            try
+            {
+                QueryThread(zapytanie);
+            }
+            catch(Exception) { }
+        }
+
+        public bool ReklamacjeForm_ZaladujStatusyCB(ref DataTable statusyDT, ref string result)
+        {
+            String zapytanie = "";
+
+            try
+            {
+                //statusyDT = Query(zapytanie);
+                return true;
+            }
+            catch(Exception exc)
+            {
+                result = exc.Message;
+                ErrorReport("ReklamacjeForm_ZaladujStatusyCB()", result);
+                return false;
+            }
+        }
+
         public bool ZamowieniaSzczegolyForm_ZaladujKontrahentDGV(string trN_PodID, string trN_PodmiotTyp, ref DataTable pomDataTable, ref string result)
         {
             String zapytanie = "select Pod_PodID, Pod_PodmiotTyp, Pod_Kod, Pod_Nazwa1, Pod_Wojewodztwo, Pod_Ulica, Pod_Miasto, Pod_KodPocztowy, Pod_Telefon1, Pod_NIP from CDN_Meble_Produkcja.cdn.PodmiotyView where PoD_PodmiotTyp = " + trN_PodmiotTyp+" and Pod_PodID = "+trN_PodID;
@@ -65,16 +93,33 @@ namespace ZamowMebel
             }
         }
 
-        public bool ZamowieniaForm_ZaladujZamowieniaDGV(String TrN_PodID, String TrN_PodmiotTyp, String dataOd, String dataDo, ref DataTable pomDataTable, ref string result)
+        public bool ReklamacjeForm_ZaladujKontrahenciCB(ref DataTable kontrahenciDT, ref string result)
         {
-            String zapytanie = "select trn.Trn_TrNID, trn.TrN_PodmiotTyp, trn.TrN_PodID, trn.Trn_NumerPelny, trn.Trn_PodNazwa1, trn.Trn_DataDok, trn.Trn_DataWys, trk.TRK_Tresc from CDN_Meble_Produkcja.cdn.tranag trn left join GAL_ZamowMebel.GAL.GAL_TrnKoment trk on trk.TRK_TrNID = trn.trn_TrNID where trn.TrN_TypDokumentu = 308";
+            String zapytanie = "";
+
+            try
+            {
+                //kontrahenciDT = Query(zapytanie);
+                return true;
+            }
+            catch(Exception exc)
+            {
+                result = exc.Message;
+                ErrorReport("ReklamacjeForm_ZaladujKontrahenciCB()", result);
+                return false;
+            }
+        }
+
+        public bool ZamowieniaForm_ZaladujZamowieniaDGV(String TrN_PodID, String dataOd, String dataDo, ref DataTable pomDataTable, ref string result)
+        {
+            String zapytanie = "exec GAL.ZamowieniaLista";
 
             if(TrN_PodID!="")
             {
-                zapytanie += " and trn.TrN_PodmiotTyp = "+ TrN_PodmiotTyp + " and trn.TrN_PodID = "+TrN_PodID;
+               // zapytanie += " and trn.TrN_PodID = "+TrN_PodID;
             }
 
-            zapytanie += " and (Trn_DataWys BETWEEN '" + dataOd + "' and '" + dataDo + "')";
+            //zapytanie += " and (Trn_DataWys BETWEEN '" + dataOd + "' and '" + dataDo + "')";
 
             try
             {
@@ -87,6 +132,28 @@ namespace ZamowMebel
                 ErrorReport("ZamowieniaForm_ZaladujZamowieniaDGV()", result);
                 return false;
             }
+        }
+
+        public bool ZamowieniaForm_ZaladujReklamacjeDGV(string trN_PodID, string dataOd, string dataDo, ref DataTable pomDataTable, ref string result)
+        {
+            String zapytanie = "exec GAL.ZamowieniaLista";
+
+            try
+            {
+                //pomDataTable = Query(zapytanie);
+                return true;
+            }
+            catch(Exception exc)
+            {
+                result = exc.Message;
+                ErrorReport("ZamowieniaForm_ZaladujReklamacjeDGV()", result);
+                return false;
+            }
+        }
+
+        public bool ReklamacjeChangeForm_ZapiszReklamacje(ref string result)
+        {
+            throw new NotImplementedException();
         }
 
         public bool ZamowieniaSzczegolyForm_ZaladujPozycjeDGV(string trN_TrNID, ref DataTable pomDataTable, ref string result)
@@ -145,7 +212,7 @@ namespace ZamowMebel
 
         public bool ZamowieniaForm_ZaladujKontrahenciCB(ref DataTable pomDataTable, ref string result)
         {
-            String zapytanie = "select '<wszyscy>' as Trn_PodNazwa1, -1 as trn_Podmiottyp, -1 as trn_podid union select distinct(Trn_PodNazwa1), trn_Podmiottyp, trn_podid from CDN_Meble_Produkcja.cdn.tranag  where TrN_TypDokumentu = 308";
+            String zapytanie = "exec GAL.ZamowieniaFiltrKontrahentów";
 
             try
             {

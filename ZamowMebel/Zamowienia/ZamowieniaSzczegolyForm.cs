@@ -16,10 +16,10 @@ namespace ZamowMebel.Zamowienia
         private string TrN_PodmiotTyp;
         private string TrN_PodID;
 
-        public ZamowieniaSzczegolyForm(string trn_TrNID, string trN_PodmiotTyp, string trN_PodID, string trn_NumerPelny, string trn_PodNazwa1, string trn_DataDok, string trn_DataWys, string tRK_Tresc)
+        public ZamowieniaSzczegolyForm()// string trn_TrNID, string trN_PodmiotTyp, string trN_PodID, string trn_NumerPelny, string trn_PodNazwa1, string trn_DataDok, string trn_DataWys, string tRK_Tresc)
         {
             InitializeComponent();
-
+            /*
             this.Text = trn_NumerPelny + "- Szczegóły";
 
             this.TrN_TrNID = trn_TrNID;
@@ -30,6 +30,34 @@ namespace ZamowMebel.Zamowienia
 
             ZaladujKontrahentaDGV();
             ZaladujPozycjeDGV();
+            */
+            testc();
+        }
+
+        private void testc()
+        {
+            Dodatki.DataGridViewProgressColumn column = new Dodatki.DataGridViewProgressColumn();
+            column.Name = "Test";
+            column.HeaderText = "Test";
+
+            DataGridViewCell dataGridViewCell = new DataGridViewTextBoxCell();
+            DataGridViewColumn column1 = new DataGridViewColumn();
+            column1.Name = "Test1";
+            column1.HeaderText = "Test1";
+            column1.CellTemplate = dataGridViewCell;
+
+            kontrahentaDGV.Columns.Add(column1);
+            kontrahentaDGV.Columns.Add(column);
+
+            object[] row1 = new object[] { "test1", 50 };
+            object[] row2 = new object[] { "test1", 55 };
+            object[] row3 = new object[] { "test1", 22 };
+            object[] rows = new object[] { row1, row2, row3 };
+
+            foreach(object[] row in rows)
+            {
+                kontrahentaDGV.Rows.Add(row);
+            }
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData) //zamknięcie aktywnego okna
@@ -125,6 +153,13 @@ namespace ZamowMebel.Zamowienia
             {
                 MessageBox.Show("Wystąpił błąd podczas wczytywania pozycji dokumentu:\n" + result, "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Ean13GeneratorForm ean = new Ean13GeneratorForm();
+            ean.ShowDialog();
+            ean.Dispose();
         }
     }
 }
